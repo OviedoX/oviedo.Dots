@@ -3,12 +3,13 @@ local wezterm = require 'wezterm'
 
 -- This table will hold the configuration.
 local config = {
-  force_reverse_video_cursor = true
+  default_prog = {"pwsh.exe"},
+  force_reverse_video_cursor = true,
 }
 
 -- font config
-config.font = wezterm.font 'JetBrainsMono NFM'
-config.font_size = 12.0
+config.font = wezterm.font('JetBrains Mono', { weight = 'Medium' })
+config.font_size = 11.0
 config.line_height = 1.2
 
 -- Custom colors
@@ -27,8 +28,8 @@ config.colors = {
 
 -- Other styles
 config.window_background_opacity = 0.7
-config.scrollback_lines = 3500
 config.hide_tab_bar_if_only_one_tab = true
+-- config.scrollback_lines = 3500
 -- config.window_background_blur = true
 
 -- In newer version of wezterm, use the config_builder which will
@@ -39,4 +40,3 @@ config.hide_tab_bar_if_only_one_tab = true
 
 -- return finally config to wezterm
 return config
-
