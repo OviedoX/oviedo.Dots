@@ -15,11 +15,11 @@ return {
           command = "python",
           exec = "%c %s",
         },
-        typescript = {
-          command = "tsc",
-          exec = "%c %s",
-        },
+        -- typescript = {
+        --   command = "tsc",
+        --   exec = "%c %s",
+        -- },
       }
-    end
+    end,
   },
 }
