@@ -11,10 +11,12 @@ return {
   },
   {
     "rebelot/kanagawa.nvim",
+    priority = 1000,
     config = function()
       require("kanagawa").setup({
-        name = "kanagawa",
-        priority = 1000,
+        functionStyle = { italic = true },
+        keywordStyle = { italic = false },
+        terminalColors = false,
         transparent = false,
       })
     end,
@@ -51,7 +53,7 @@ return {
         },
         disable = {
           colored_cursor = true,
-          background = true,
+          background = false,
           term_colors = true,
         },
         -- high_visibility = {
@@ -70,45 +72,41 @@ return {
     config = function()
       require("nordic").setup({
         bold_keywords = true,
-        transparent_bg = false,
+        transparent_bg = true,
         italic_comments = true,
-        reduced_blue = false,
+        --bright_border = true,
         swap_backgrounds = true,
+        --reduced_blue = true,
         cursorline = {
           bold = true,
           bold_number = true,
           theme = "dark",
         },
-      })
-    end,
-  },
-  {
-    "olivercederborg/poimandres.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("poimandres").setup({
-        dim_nc_background = false,
-        disable_background = true,
-        disable_float_background = true,
+        telescope = {
+          style = "classic",
+        },
       })
     end,
   },
   {
     "ramojus/mellifluous.nvim",
     priority = 1000,
+    color_set = "mellifluous",
     config = function()
       require("mellifluous").setup({
+        dim_inactive = false,
         styles = {
           comments = { italic = true },
+          booleans = { italic = true },
+        },
+        flat_background = {
+          line_numbers = true,
+          floating_windows = false,
+          file_tree = true,
+          cursor_line_number = true,
         },
         transparent_background = {
-          enabled = true,
-          floating_windows = false,
-          telescope = true,
-          file_tree = true,
-          cursor_line = false,
-          status_line = false,
+          enabled = false,
         },
       })
     end,
@@ -118,8 +116,85 @@ return {
     name = "catppuccin",
     priority = 1000,
     config = {
-      flavour = "auto",
+      flavour = "mocha", -- auto latte frappe macchiato mocha
       transparent_background = true,
     },
+  },
+  {
+    "EdenEast/nightfox.nvim",
+    priority = 1000,
+    config = function()
+      require("nightfox").setup({
+        options = {
+          -- posee varios sabores mi fav es duskfox
+          transparent = true,
+          styles = {
+            comments = "italic, bold",
+          },
+        },
+      })
+    end,
+  },
+  {
+    "navarasu/onedark.nvim",
+    priority = 1000,
+    config = function()
+      require("onedark").setup({
+        style = "dark",
+        transparent = true,
+        code_style = {
+          functions = "italic",
+        },
+      })
+    end,
+  },
+  {
+    "mhartington/oceanic-next",
+    -- name OceanicNext
+    priority = 1000,
+  },
+  {
+    "ribru17/bamboo.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("bamboo").setup({
+        style = "vulgaris",
+        transparent = true,
+      })
+    end,
+  },
+  {
+    "rockyzhang24/arctic.nvim",
+    dependencies = { "rktjmp/lush.nvim" },
+    name = "arctic",
+    branch = "main",
+    priority = 1000,
+  },
+  {
+    "eldritch-theme/eldritch.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      transparent = false,
+    },
+  },
+  {
+    "embark-theme/vim",
+    as = "embark",
+  },
+  {
+    "kdheepak/monochrome.nvim",
+    priority = 1000,
+  },
+  {
+    "Abstract-IDE/Abstract-cs",
+    -- name abscs
+    priority = 1000,
+  },
+  {
+    "rockerBOO/boo-colorscheme-nvim",
+    lazy = false,
+    priority = 1000,
   },
 }

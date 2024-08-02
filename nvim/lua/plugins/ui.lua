@@ -62,7 +62,23 @@ return {
         },
       }
 
-      opts.presets.lsp_doc_border = true
+      -- Config los presents y sobrescrituras LSP
+      opts.presets = {
+        bottom_search = true,
+        command_palette = true,
+        long_message_to_split = true,
+        inc_rename = false,
+        lsp_doc_border = true,
+      }
+
+      -- Sobrescrituras para evitar conflictos con nvim-cmp
+      opts.lsp = {
+        overrides = {
+          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+          ["vim.lsp.util.stylize_markdown"] = true,
+          ["cmp.entry.get_documentation"] = false, -- change to false para evitar conflictos
+        },
+      }
     end,
   },
   {
@@ -70,7 +86,8 @@ return {
     opts = {
       timeout = 5000,
       background_colour = "#000000",
-      render = "wrapped-compact",
+      render = "wrapped-compact", -- compact simple minimal default
+      stages = "slide", --  fade slide static fade_in_slide_out
     },
   },
 
@@ -140,6 +157,16 @@ return {
     -- optional for floating window border decoration
     dependencies = {
       "nvim-lua/plenary.nvim",
+    },
+    {
+      "folke/which-key.nvim",
+      config = function()
+        require("which-key").setup({
+          win = {
+            border = "rounded",
+          },
+        })
+      end,
     },
   },
   -- {
