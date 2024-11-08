@@ -14,6 +14,7 @@ return {
         build = "make",
       },
       "nvim-telescope/telescope-file-browser.nvim",
+      "nvim-telescope/telescope-ui-select.nvim",
     },
     keys = {
       {
@@ -37,9 +38,14 @@ return {
       },
       {
         "<leader>i",
+        -- function()
+        --   local builtin = require("telescope.builtin")
+        --   builtin.buffers()
+        -- end,
         function()
           local builtin = require("telescope.builtin")
-          builtin.buffers()
+          local ui_select = require("telescope.themes").get_dropdown({})
+          builtin.buffers(ui_select)
         end,
         desc = "Lists open buffers",
       },
@@ -107,7 +113,7 @@ return {
       })
       opts.pickers = {
         diagnostics = {
-          theme = "ivy",
+          theme = "dropdown", -- ivy
           initial_mode = "normal",
           layout_config = {
             preview_cutoff = 9999,
@@ -138,10 +144,14 @@ return {
             },
           },
         },
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown({}),
+        },
       }
       telescope.setup(opts)
       require("telescope").load_extension("fzf")
       require("telescope").load_extension("file_browser")
+      require("telescope").load_extension("ui-select")
     end,
   },
 }

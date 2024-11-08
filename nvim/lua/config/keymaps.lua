@@ -25,3 +25,8 @@ keymap.set("n", "<leader>R", ":QuickRun<Return>", opts)
 -- File explorer with NvimTree
 -- keymap.set("n", "<Leader>i", ":NvimTreeFindFile<Return>", opts)
 -- keymap.set("n", "<Leader>t", ":NvimTreeToggle<Return>", opts)
+
+-- lsp
+keymap.set({ "n" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+-- keymap.set("n", "K", vim.lsp.buf.hover, opts)
+-- keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
